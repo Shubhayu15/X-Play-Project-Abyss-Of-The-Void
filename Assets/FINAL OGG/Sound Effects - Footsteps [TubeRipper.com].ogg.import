@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yy3ontbbcd65"
+path="res://.godot/imported/Sound Effects - Footsteps [TubeRipper.com].ogg-bd0fa70da268812df1b70c5663915b74.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/Sound Effects - Footsteps [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Sound Effects - Footsteps [TubeRipper.com].ogg-bd0fa70da268812df1b70c5663915b74.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

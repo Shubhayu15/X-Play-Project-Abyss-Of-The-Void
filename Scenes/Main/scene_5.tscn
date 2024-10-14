@@ -1,0 +1,229 @@
+[gd_scene load_steps=21 format=3 uid="uid://4455mdf2xdms"]
+
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_83n5j"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/scene_5.gd" id="1_fudwr"]
+[ext_resource type="PackedScene" uid="uid://jyhfb5frfawx" path="res://Scenes/SubScenes/player.tscn" id="2_bp25v"]
+[ext_resource type="PackedScene" uid="uid://yrk881uber6h" path="res://Scenes/SubScenes/space_ship.tscn" id="3_5drow"]
+[ext_resource type="PackedScene" uid="uid://bjj8vj6l1yf83" path="res://Scenes/SubScenes/npc1_death.tscn" id="4_3nnap"]
+[ext_resource type="PackedScene" uid="uid://orxxu3w80y4r" path="res://Scenes/SubScenes/npc3_death.tscn" id="5_y87ol"]
+[ext_resource type="PackedScene" uid="uid://dmxuanoitbsbn" path="res://Scenes/SubScenes/teleporterS3.tscn" id="6_1cieg"]
+[ext_resource type="Texture2D" uid="uid://c61r34d4kies4" path="res://Assets/Icons/blood1.png" id="8_1d0rx"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/task_manager_3.gd" id="9_ohwwm"]
+[ext_resource type="FontFile" uid="uid://bypqcdah1gfx8" path="res://Assets/Fonts/unispace/Unispace Rg.otf" id="10_mhk5x"]
+[ext_resource type="AudioStream" uid="uid://3nqxg61nar3t" path="res://Assets/FINAL OGG/vgm-atmos-destitute_changed_Lowvolume.ogg" id="11_sc02e"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vn7b4"]
+panorama = ExtResource("1_83n5j")
+
+[sub_resource type="Sky" id="Sky_vy02u"]
+sky_material = SubResource("PanoramaSkyMaterial_vn7b4")
+
+[sub_resource type="Environment" id="Environment_ls2eb"]
+background_mode = 2
+sky = SubResource("Sky_vy02u")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36yrc"]
+transparency = 1
+albedo_texture = ExtResource("8_1d0rx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_676fc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qu3y1"]
+size = Vector3(10, 8, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n3wwb"]
+size = Vector3(37.5079, 8, 12.0811)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc8t6"]
+size = Vector3(3.2041, 4, 3.13666)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ds2pf"]
+
+[node name="Scene5" type="Node3D"]
+script = ExtResource("1_fudwr")
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ls2eb")
+
+[node name="Player" parent="." instance=ExtResource("2_bp25v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54588, -120.407)
+
+[node name="SpaceShip" parent="." instance=ExtResource("3_5drow")]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.8551, -118.811)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, -49.6826)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.775, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.225, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, 43.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="NPC" type="Node3D" parent="."]
+
+[node name="Captain_Death" parent="NPC" instance=ExtResource("4_3nnap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.39631, -126.388)
+prompt_message = "Talk To Captain"
+prompt_action = "query"
+
+[node name="Manager_Death" parent="NPC" instance=ExtResource("5_y87ol")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 16, 0, -26.6051)
+prompt_message = "Talk To Manager"
+prompt_action = "query"
+
+[node name="Teleporter" parent="NPC" instance=ExtResource("6_1cieg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1441, -6.7644e-07, -13.8476)
+
+[node name="BloodMesh" type="Node3D" parent="."]
+
+[node name="Blood" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(1.01512, 0, -2.33596, 0, 2.547, 0, 2.33596, 0, 1.01512, -0.133392, 4.46279, -126.106)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Blood2" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(1.01512, 0, -2.33596, 0, 2.547, 0, 2.33596, 0, 1.01512, 16.135, 0.0999998, -25.131)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Blood3" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(2.45267, 0, -0.686736, 0, 2.547, 0, 0.686736, 0, 2.45267, 20.3923, 0.0999995, -25.4638)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Blood4" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(1.78071, 0, -1.82107, 0, 2.547, 0, 1.82107, 0, 1.78071, 8.39229, 0.0999995, -43.4638)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Blood5" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(-0.442123, 0, 1.72721, 0, 1.7829, 0, -1.72721, 0, -0.442123, -8.60771, 0.0999995, -53.4638)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Blood6" type="MeshInstance3D" parent="BloodMesh"]
+transform = Transform3D(1.55393, 0, 0.874092, 0, 1.7829, 0, -0.874092, 0, 1.55393, 28.3923, 0.0999995, -29.4638)
+material_override = SubResource("StandardMaterial3D_36yrc")
+mesh = SubResource("PlaneMesh_676fc")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81743, 3.75608, -9.27923)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D"]
+shape = SubResource("BoxShape3D_qu3y1")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8174, 3.75608, 46.7208)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D2"]
+shape = SubResource("BoxShape3D_qu3y1")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817431, 3.75608, -34.2792)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5825, 0, 3.53175)
+shape = SubResource("BoxShape3D_n3wwb")
+
+[node name="TaskManager" type="Node3D" parent="."]
+script = ExtResource("9_ohwwm")
+
+[node name="OBJ1" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0666277, 3.65496, -123.914)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="OBJ2" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0098, -0.560691, -21.4054)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="Objective label" type="Label" parent="TaskManager"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -280.0
+offset_right = -2.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_mhk5x")
+text = "Objective:                          "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Task" type="Label" parent="TaskManager"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -257.0
+offset_right = -71.0
+offset_bottom = -234.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_mhk5x")
+text = "Go and talk to Captain"
+vertical_alignment = 1
+
+[node name="BGM-Void" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_sc02e")
+autoplay = true
+
+[connection signal="body_exited" from="TaskManager/OBJ1" to="TaskManager" method="_on_obj_1_body_exited"]
+[connection signal="body_exited" from="TaskManager/OBJ2" to="TaskManager" method="_on_obj_2_body_exited"]

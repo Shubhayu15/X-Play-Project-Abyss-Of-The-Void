@@ -1,0 +1,293 @@
+[gd_scene load_steps=27 format=3 uid="uid://c46xf577xaaey"]
+
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_7e7y8"]
+[ext_resource type="Script" path="res://Scripts/Main/Global.gd" id="1_qtcl4"]
+[ext_resource type="PackedScene" uid="uid://jyhfb5frfawx" path="res://Scenes/SubScenes/player.tscn" id="2_j71sq"]
+[ext_resource type="PackedScene" uid="uid://yrk881uber6h" path="res://Scenes/SubScenes/space_ship.tscn" id="3_8lff5"]
+[ext_resource type="PackedScene" uid="uid://bvxmv8ptoxiww" path="res://Scenes/SubScenes/light.tscn" id="5_0c6ms"]
+[ext_resource type="PackedScene" uid="uid://18800ph4kgki" path="res://Scenes/SubScenes/npc1.tscn" id="6_u17u3"]
+[ext_resource type="PackedScene" uid="uid://dmjd4aytiunt5" path="res://Scenes/SubScenes/npc2.tscn" id="7_bjhr8"]
+[ext_resource type="PackedScene" uid="uid://c4yma1wjq4sfo" path="res://Scenes/SubScenes/npc3.tscn" id="8_fpxpv"]
+[ext_resource type="PackedScene" uid="uid://dtjm4e040xjw" path="res://Scenes/SubScenes/npc4.tscn" id="9_m531b"]
+[ext_resource type="PackedScene" uid="uid://biqhm3pjb1gcn" path="res://Scenes/SubScenes/teleporterS1.tscn" id="10_5m1j2"]
+[ext_resource type="PackedScene" uid="uid://b6velthb0dqv1" path="res://Scenes/SubScenes/scene_scane_ui.tscn" id="11_2scpk"]
+[ext_resource type="PackedScene" uid="uid://daadwk4shl1pu" path="res://Scenes/SubScenes/red.tscn" id="13_orn0b"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/task_manager.gd" id="14_2u46r"]
+[ext_resource type="FontFile" uid="uid://bypqcdah1gfx8" path="res://Assets/Fonts/unispace/Unispace Rg.otf" id="15_p4ac3"]
+[ext_resource type="AudioStream" uid="uid://3nqxg61nar3t" path="res://Assets/FINAL OGG/vgm-atmos-destitute_changed_Lowvolume.ogg" id="16_4i2b3"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/instruction.gd" id="16_omo8j"]
+[ext_resource type="Texture2D" uid="uid://bc6txfla5741g" path="res://Assets/Icons/UIctrl.png" id="17_nq8ly"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r7ay0"]
+panorama = ExtResource("1_7e7y8")
+
+[sub_resource type="Sky" id="Sky_y3at3"]
+sky_material = SubResource("PanoramaSkyMaterial_r7ay0")
+
+[sub_resource type="Environment" id="Environment_1mm0w"]
+background_mode = 2
+sky = SubResource("Sky_y3at3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_521mw"]
+size = Vector3(19.6851, 9, 83.9143)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpgx8"]
+size = Vector3(10, 8, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc8t6"]
+size = Vector3(3.2041, 4, 3.13666)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ds2pf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jxv16"]
+size = Vector3(3.65405, 4, 2.77637)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mkue"]
+size = Vector3(10, 6, 8)
+
+[node name="Scene1" type="Node3D"]
+script = ExtResource("1_qtcl4")
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1mm0w")
+
+[node name="Player" parent="." instance=ExtResource("2_j71sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -30)
+
+[node name="SpaceShip" parent="." instance=ExtResource("3_8lff5")]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.8551, -118.811)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, -49.6826)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.775, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.225, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, 43.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="LightsBulbs" type="Node3D" parent="."]
+
+[node name="Light" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16417, 5.99651, -48.1595)
+
+[node name="Light6" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16417, 16.9965, -120.16)
+
+[node name="Light7" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16417, 16.9965, -106.16)
+
+[node name="Light4" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8358, 5.99651, -34.1595)
+
+[node name="Light5" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.836, 5.997, -34.16)
+
+[node name="Light8" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.836, 6.997, -2.16)
+
+[node name="Light11" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.836, 6.997, -2.16)
+
+[node name="Light9" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.836, 6.997, 14.84)
+
+[node name="Light12" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.836, 6.997, 14.84)
+
+[node name="Light10" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.836, 6.997, 34.84)
+
+[node name="Light14" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.836, 7.997, 36.84)
+
+[node name="Light15" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.836, 7.997, 36.84)
+
+[node name="Light13" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.836, 6.997, 34.84)
+
+[node name="Light2" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 0.989008, 0.147861, 0, -0.147861, 0.989008, -19.836, 6.14099, -19.8121)
+
+[node name="Light3" parent="LightsBulbs" instance=ExtResource("5_0c6ms")]
+transform = Transform3D(1, 0, 0, 0, 0.989008, 0.147861, 0, -0.147861, 0.989008, 19.836, 6.141, -19.812)
+
+[node name="NPC" type="Node3D" parent="."]
+
+[node name="Captain" parent="NPC" instance=ExtResource("6_u17u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -109)
+prompt_message = "Talk To Captain"
+prompt_action = "query"
+
+[node name="Guard" parent="NPC" instance=ExtResource("7_bjhr8")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -23, 0, -15)
+prompt_message = "Talk To Guard"
+prompt_action = "query"
+
+[node name="Manager" parent="NPC" instance=ExtResource("8_fpxpv")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -24, 0, -9)
+prompt_message = "Talk To Manager"
+prompt_action = "query"
+
+[node name="Merchant" parent="NPC" instance=ExtResource("9_m531b")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -17, 0, 48)
+prompt_message = "Talk To Merchant"
+prompt_action = "query"
+
+[node name="Teleporter" parent="." instance=ExtResource("10_5m1j2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.427, 0, 54.9823)
+
+[node name="SceneScaneUI" parent="." instance=ExtResource("11_2scpk")]
+
+[node name="Collider" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7943, 4, 14.4444)
+shape = SubResource("BoxShape3D_521mw")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Collider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -31.0889)
+shape = SubResource("BoxShape3D_kpgx8")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Collider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.61901, 4, -9.84292)
+shape = SubResource("BoxShape3D_kpgx8")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Collider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.38099, 4, -7.66557)
+shape = SubResource("BoxShape3D_kpgx8")
+
+[node name="Red" parent="." instance=ExtResource("13_orn0b")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -28.855, -0.0270924, -16.266)
+prompt_message = "Red"
+
+[node name="TaskManager" type="Node3D" parent="."]
+script = ExtResource("14_2u46r")
+
+[node name="OBJ1" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -106)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="OBJ2" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2394, -1.0952, -18.0165)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0299072, 4, 0.293457)
+shape = SubResource("BoxShape3D_jxv16")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="OBJ3" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.966, -1.26924, -9.26099)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170353, 4, 0.0282288)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="Objective label" type="Label" parent="TaskManager"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -280.0
+offset_right = -2.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_p4ac3")
+text = "Objective:                          "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Task" type="Label" parent="TaskManager"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -257.0
+offset_right = -71.0
+offset_bottom = -234.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("15_p4ac3")
+text = "Go and talk to Captain"
+vertical_alignment = 1
+
+[node name="BGM-Void" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_4i2b3")
+autoplay = true
+
+[node name="INSTRUCTION" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -33)
+script = ExtResource("16_omo8j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="INSTRUCTION"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
+shape = SubResource("BoxShape3D_1mkue")
+
+[node name="UIctrl" type="Sprite2D" parent="INSTRUCTION"]
+visible = false
+position = Vector2(899, 476)
+scale = Vector2(0.189315, 0.233427)
+texture = ExtResource("17_nq8ly")
+
+[connection signal="body_exited" from="TaskManager/OBJ1" to="TaskManager" method="_on_obj_1_body_exited"]
+[connection signal="body_exited" from="TaskManager/OBJ2" to="TaskManager" method="_on_obj_2_body_exited"]
+[connection signal="body_exited" from="TaskManager/OBJ3" to="TaskManager" method="_on_obj_3_body_exited"]
+[connection signal="body_exited" from="INSTRUCTION" to="INSTRUCTION" method="_on_body_exited"]

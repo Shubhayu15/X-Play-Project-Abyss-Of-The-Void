@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtwvxxxl0jnoq"]
+
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_7twfl"]
+[ext_resource type="PackedScene" uid="uid://yrk881uber6h" path="res://Scenes/SubScenes/space_ship.tscn" id="1_fymxs"]
+[ext_resource type="PackedScene" uid="uid://jyhfb5frfawx" path="res://Scenes/SubScenes/player.tscn" id="2_e5pmr"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ttuej"]
+panorama = ExtResource("1_7twfl")
+
+[sub_resource type="Sky" id="Sky_6xd63"]
+sky_material = SubResource("PanoramaSkyMaterial_ttuej")
+
+[sub_resource type="Environment" id="Environment_717nv"]
+background_mode = 2
+sky = SubResource("Sky_6xd63")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestAssetsScenes" type="Node3D"]
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_717nv")
+
+[node name="Player" parent="." instance=ExtResource("2_e5pmr")]
+
+[node name="SpaceShip" parent="." instance=ExtResource("1_fymxs")]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8v0accbwht4c"
+path="res://.godot/imported/lever pull sound effect.ogg-2dd28b5d39004032254f867f9514fe02.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/lever pull sound effect.ogg"
+dest_files=["res://.godot/imported/lever pull sound effect.ogg-2dd28b5d39004032254f867f9514fe02.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

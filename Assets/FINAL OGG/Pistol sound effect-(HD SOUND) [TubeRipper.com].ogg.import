@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cq8jgubrbfwjk"
+path="res://.godot/imported/Pistol sound effect-(HD SOUND) [TubeRipper.com].ogg-4643fd4e0f37241d459ed51724a308d7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/Pistol sound effect-(HD SOUND) [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Pistol sound effect-(HD SOUND) [TubeRipper.com].ogg-4643fd4e0f37241d459ed51724a308d7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

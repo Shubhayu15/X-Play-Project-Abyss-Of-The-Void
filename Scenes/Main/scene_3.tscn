@@ -1,0 +1,221 @@
+[gd_scene load_steps=23 format=3 uid="uid://b3282hf3kjw4t"]
+
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_jeqh5"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/scene_3.gd" id="1_nbx54"]
+[ext_resource type="PackedScene" uid="uid://dk2ejam7btvo6" path="res://Scenes/SubScenes/teleporterS2.tscn" id="1_of35h"]
+[ext_resource type="PackedScene" uid="uid://jyhfb5frfawx" path="res://Scenes/SubScenes/player.tscn" id="2_u7xh2"]
+[ext_resource type="PackedScene" uid="uid://yrk881uber6h" path="res://Scenes/SubScenes/space_ship.tscn" id="3_2pxsj"]
+[ext_resource type="PackedScene" uid="uid://drqcr6tf7nhj7" path="res://Scenes/SubScenes/switch.tscn" id="4_e7qim"]
+[ext_resource type="PackedScene" uid="uid://crclf6ua6vlxa" path="res://Scenes/SubScenes/switch2.tscn" id="5_nq38e"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/task_manager_2.gd" id="8_4chmv"]
+[ext_resource type="FontFile" uid="uid://bypqcdah1gfx8" path="res://Assets/Fonts/unispace/Unispace Rg.otf" id="9_7heoy"]
+[ext_resource type="AudioStream" uid="uid://3nqxg61nar3t" path="res://Assets/FINAL OGG/vgm-atmos-destitute_changed_Lowvolume.ogg" id="10_hstoc"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vn7b4"]
+panorama = ExtResource("1_jeqh5")
+
+[sub_resource type="Sky" id="Sky_vy02u"]
+sky_material = SubResource("PanoramaSkyMaterial_vn7b4")
+
+[sub_resource type="Environment" id="Environment_ls2eb"]
+background_mode = 2
+sky = SubResource("Sky_vy02u")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqhyr"]
+size = Vector3(19.5576, 8, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxeoj"]
+size = Vector3(28.7979, 8, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc8t6"]
+size = Vector3(3.2041, 4, 3.13666)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ds2pf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjh6o"]
+size = Vector3(13, 7, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y56r7"]
+size = Vector3(70, 7, 2.0083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2p8p"]
+size = Vector3(18.3208, 7, 2.0083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rf8u"]
+size = Vector3(41.7998, 7, 2.0083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_20m6y"]
+size = Vector3(108.094, 7, 2.0083)
+
+[node name="Scene3" type="Node3D"]
+script = ExtResource("1_nbx54")
+
+[node name="Teleporter" parent="." instance=ExtResource("1_of35h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.10256, 0, 61.3582)
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ls2eb")
+
+[node name="Player" parent="." instance=ExtResource("2_u7xh2")]
+transform = Transform3D(-0.552752, 0, 0.833346, 0, 1, 0, -0.833346, 0, -0.552752, -11, 0, 65.8891)
+
+[node name="SpaceShip" parent="." instance=ExtResource("3_2pxsj")]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.8551, -118.811)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, -49.6826)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.775, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.225, 7.40956, 12.098)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.66266, 43.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 6.66266, 92.3174)
+light_energy = 1.5
+omni_range = 100.0
+
+[node name="Switch" parent="." instance=ExtResource("4_e7qim")]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -13.7275, -2.21346, 99.5033)
+prompt_message = "Pull"
+
+[node name="Switch2" parent="." instance=ExtResource("5_nq38e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.3626, -1.69541, 97.5818)
+prompt_message = "Pull"
+
+[node name="Colliders" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 59)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62013, 4, 0)
+shape = SubResource("BoxShape3D_kqhyr")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Colliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0823, 0, 59)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68025, 4, 0)
+shape = SubResource("BoxShape3D_dxeoj")
+
+[node name="TaskManager" type="Node3D" parent="."]
+script = ExtResource("8_4chmv")
+
+[node name="OBJ1" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -6.63587, 98)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="OBJ2" type="Area3D" parent="TaskManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.943, -7, 105.05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TaskManager/OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="Objective label" type="Label" parent="TaskManager"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -280.0
+offset_right = -2.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_7heoy")
+text = "Objective:                          "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Task" type="Label" parent="TaskManager"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -257.0
+offset_right = -71.0
+offset_bottom = -234.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_7heoy")
+text = "Go and talk to Captain"
+vertical_alignment = 1
+
+[node name="BGM-Void" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hstoc")
+autoplay = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 60)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, 0.5)
+shape = SubResource("BoxShape3D_gjh6o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -3, -2.72319)
+shape = SubResource("BoxShape3D_y56r7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 11.4907, -3, 4.89756)
+shape = SubResource("BoxShape3D_t2p8p")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -57.491, -3, 4.898)
+shape = SubResource("BoxShape3D_t2p8p")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.448524, 0, -0.893771, 0, 1, 0, 0.893771, 0, -0.448524, -66.5364, -3, 31.4575)
+shape = SubResource("BoxShape3D_1rf8u")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.443509, 0, -0.89627, 0, 1, 0, 0.89627, 0, 0.443509, 20.4536, -3, 31.3905)
+shape = SubResource("BoxShape3D_1rf8u")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5695, -3, 48.4459)
+shape = SubResource("BoxShape3D_20m6y")
+
+[connection signal="body_exited" from="TaskManager/OBJ1" to="TaskManager" method="_on_obj_1_body_exited"]
+[connection signal="body_exited" from="TaskManager/OBJ2" to="TaskManager" method="_on_obj_2_body_exited"]

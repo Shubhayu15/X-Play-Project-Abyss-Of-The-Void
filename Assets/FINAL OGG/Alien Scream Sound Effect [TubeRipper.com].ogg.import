@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://duiw85v1lpt63"
+path="res://.godot/imported/Alien Scream Sound Effect [TubeRipper.com].ogg-4679e2700e18fcf227578c4af8a90340.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/Alien Scream Sound Effect [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Alien Scream Sound Effect [TubeRipper.com].ogg-4679e2700e18fcf227578c4af8a90340.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

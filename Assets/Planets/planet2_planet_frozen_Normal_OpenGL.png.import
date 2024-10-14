@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://r33m7i3j3wnm"
+path.s3tc="res://.godot/imported/planet2_planet_frozen_Normal_OpenGL.png-6f84fd4f6fe4f787a6dd2849e492cb88.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "75155b7cf9bd7208290af0d8bca4f0cf"
+}
+
+[deps]
+
+source_file="res://Assets/Planets/planet2_planet_frozen_Normal_OpenGL.png"
+dest_files=["res://.godot/imported/planet2_planet_frozen_Normal_OpenGL.png-6f84fd4f6fe4f787a6dd2849e492cb88.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Planets/planet2_planet_frozen_Normal_OpenGL.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

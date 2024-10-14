@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://buqurpsl1uim"
+path="res://.godot/imported/ENDING & CREDITS Far-Out - Hurry Up.ogg-777a4fd8239b1dda202894face667577.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/ENDING & CREDITS Far-Out - Hurry Up.ogg"
+dest_files=["res://.godot/imported/ENDING & CREDITS Far-Out - Hurry Up.ogg-777a4fd8239b1dda202894face667577.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

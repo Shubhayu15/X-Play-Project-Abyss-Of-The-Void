@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dhscal6isjnen"
+path.s3tc="res://.godot/imported/planet2_planet_gas_cloud_02_Normal_OpenGL.png-28c337285c1e0eaaf1c2dea44f5e26d1.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "24cf0609e482ff6bcec2e4e5340e747b"
+}
+
+[deps]
+
+source_file="res://Assets/Planets/planet2_planet_gas_cloud_02_Normal_OpenGL.png"
+dest_files=["res://.godot/imported/planet2_planet_gas_cloud_02_Normal_OpenGL.png-28c337285c1e0eaaf1c2dea44f5e26d1.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Assets/Planets/planet2_planet_gas_cloud_02_Normal_OpenGL.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

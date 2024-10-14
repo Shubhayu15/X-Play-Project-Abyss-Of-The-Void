@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cre7g4aa8l4im"
+path="res://.godot/imported/Among us sound effect [TubeRipper.com].ogg-bfecb04117fc8925485e6fba60dd7898.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/Among us sound effect [TubeRipper.com].ogg"
+dest_files=["res://.godot/imported/Among us sound effect [TubeRipper.com].ogg-bfecb04117fc8925485e6fba60dd7898.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

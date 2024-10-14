@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cescgunpqc4hv"]
+
+[ext_resource type="PackedScene" uid="uid://ctns0m8w6ti6m" path="res://Scenes/SubScenes/player_fps.tscn" id="1_dsug6"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/fps_World.gd" id="1_q4r8n"]
+[ext_resource type="PackedScene" uid="uid://okmffsx30gwo" path="res://Scenes/SubScenes/alien.tscn" id="2_htslp"]
+[ext_resource type="Texture2D" uid="uid://ba7dao2hrg3m3" path="res://Assets/Icons/BloodOverlay.png" id="3_bqeex"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mt6r0"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_8s10w"]
+sky_material = SubResource("ProceduralSkyMaterial_mt6r0")
+
+[sub_resource type="Environment" id="Environment_2f0vj"]
+background_mode = 2
+sky = SubResource("Sky_8s10w")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_jd674"]
+vertices = PackedVector3Array(-24.5, 0.5, -24.5, -24.5, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_max_slope = 60.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_py76e"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5a5ht"]
+data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25)
+
+[node name="FPS_Testing" type="Node3D"]
+script = ExtResource("1_q4r8n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2f0vj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_jd674")
+
+[node name="Base" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_py76e")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Base/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5a5ht")
+
+[node name="Alien" parent="." instance=ExtResource("2_htslp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108871, -1.90735e-06, -13.2802)
+player_path = NodePath("../Player_fps")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 71.0
+offset_right = 60.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.955351, 0.922353)
+mouse_filter = 2
+
+[node name="Hitrect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.058152
+anchor_top = -0.152254
+anchor_right = 1.05296
+anchor_bottom = 1.08231
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.943616, 0.932466)
+texture = ExtResource("3_bqeex")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_fps" parent="." instance=ExtResource("1_dsug6")]
+
+[connection signal="player_hit" from="Player_fps" to="." method="_on_player_fps_player_hit"]

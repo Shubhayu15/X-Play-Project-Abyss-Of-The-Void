@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://jyhfb5frfawx"]
+
+[ext_resource type="Script" path="res://Scripts/SubScenes/player.gd" id="1_put0j"]
+[ext_resource type="Script" path="res://Scripts/SubScenes/interact_ray.gd" id="2_1p7ho"]
+[ext_resource type="FontFile" uid="uid://bypqcdah1gfx8" path="res://Assets/Fonts/unispace/Unispace Rg.otf" id="3_7gtpi"]
+[ext_resource type="Texture2D" uid="uid://cbhh1goj4cxra" path="res://Assets/Icons/crosshair001.png" id="4_mjsog"]
+[ext_resource type="Material" uid="uid://d15r0vye07rc3" path="res://Assets/Shaders/crt.tres" id="5_pal2m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hkwc3"]
+height = 4.0
+radius = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2b0rm"]
+height = 1.5
+radius = 0.1
+
+[node name="Player" type="CharacterBody3D"]
+floor_max_angle = 1.0472
+script = ExtResource("1_put0j")
+
+[node name="Uncrouch" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_hkwc3")
+
+[node name="Crouch" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_2b0rm")
+disabled = true
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera/Camera3D"]
+target_position = Vector3(0, 0, -4)
+collide_with_areas = true
+script = ExtResource("2_1p7ho")
+
+[node name="Prompt" type="Label" parent="Camera/Camera3D/RayCast3D"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -21.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7gtpi")
+text = "Message
+[Key]"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mjsog")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 4, 0)
+
+[node name="CRT_Sharder" type="CanvasLayer" parent="."]
+
+[node name="Crt" type="ColorRect" parent="CRT_Sharder"]
+modulate = Color(1, 1, 1, 0.784314)
+material = ExtResource("5_pal2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

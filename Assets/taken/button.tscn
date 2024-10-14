@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7i13hove6oko"]
+
+[ext_resource type="Script" path="res://Script/Interact_Object.gd" id="1_vchca"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbd8s"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5tx6m"]
+top_radius = 0.25
+height = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppaou"]
+
+[node name="Button" type="StaticBody3D"]
+script = ExtResource("1_vchca")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_hbd8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("CylinderMesh_5tx6m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ppaou")

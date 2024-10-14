@@ -1,0 +1,196 @@
+[gd_scene load_steps=22 format=3 uid="uid://dvfe05olbjyjq"]
+
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_ml4pv"]
+[ext_resource type="Script" path="res://Scripts/Main/credits.gd" id="1_nxpll"]
+[ext_resource type="AudioStream" uid="uid://buqurpsl1uim" path="res://Assets/FINAL OGG/ENDING & CREDITS Far-Out - Hurry Up.ogg" id="2_fpfsk"]
+[ext_resource type="FontFile" uid="uid://c0lnl3usffykf" path="res://Assets/Fonts/unispace/Unispace Bd.otf" id="3_ntkcn"]
+[ext_resource type="Texture2D" uid="uid://4hnqfv2kg6g0" path="res://Assets/Icons/5.png" id="4_b2kq3"]
+[ext_resource type="Texture2D" uid="uid://cu5i5bm3wdce" path="res://Assets/Icons/6.png" id="5_r7uy7"]
+[ext_resource type="Texture2D" uid="uid://ckfsspke8o2om" path="res://Assets/Icons/7.png" id="6_6flkq"]
+[ext_resource type="Texture2D" uid="uid://dqj4xhg86qnk7" path="res://Assets/Icons/black-hole.png" id="7_hhol1"]
+[ext_resource type="Material" uid="uid://d15r0vye07rc3" path="res://Assets/Shaders/crt.tres" id="9_dgqm3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_serlk"]
+panorama = ExtResource("1_ml4pv")
+
+[sub_resource type="Sky" id="Sky_l5vwv"]
+sky_material = SubResource("PanoramaSkyMaterial_serlk")
+
+[sub_resource type="Environment" id="Environment_ioont"]
+background_mode = 2
+sky = SubResource("Sky_l5vwv")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yma0d"]
+transparency = 1
+albedo_texture = ExtResource("4_b2kq3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ry6kw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxdva"]
+transparency = 1
+albedo_texture = ExtResource("5_r7uy7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ll5mt"]
+transparency = 1
+albedo_texture = ExtResource("6_6flkq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftnpc"]
+transparency = 1
+albedo_texture = ExtResource("7_hhol1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4ak6d"]
+
+[sub_resource type="Animation" id="Animation_bxlfk"]
+resource_name = "Credits"
+length = 40.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 40),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 23), Vector3(0, 0, -22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 31, 32, 40),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(40),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_next_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_q54v0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxbu0"]
+_data = {
+"Credits": SubResource("Animation_bxlfk"),
+"RESET": SubResource("Animation_q54v0")
+}
+
+[node name="Credits" type="Node3D"]
+script = ExtResource("1_nxpll")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0, -4.37114e-08, 1, -0.5, 0.866025, 3.78552e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ioont")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 7, 0)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fpfsk")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -66.0
+offset_right = 113.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_ntkcn")
+text = "PRESS ENTER TO CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(7.6032, 0, 0, 0, 2.4, 0, 0, 0, 4.1472, 0, 0, -10)
+material_override = SubResource("StandardMaterial3D_yma0d")
+mesh = SubResource("PlaneMesh_ry6kw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(6.08256, 0, 0, 0, 1, 0, 0, 0, 5.80608, 0, 0, 7)
+material_override = SubResource("StandardMaterial3D_dxdva")
+mesh = SubResource("PlaneMesh_ry6kw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.04128, 0, 0, 0, 1, 0, 0, 0, 1.67215, 0, 0, 15)
+material_override = SubResource("StandardMaterial3D_ll5mt")
+mesh = SubResource("PlaneMesh_ry6kw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.25, 0, 0, 0, 3.25, 0, 0, 0, 3.25, 0, 0, -2.37154)
+material_override = SubResource("StandardMaterial3D_ftnpc")
+mesh = SubResource("PlaneMesh_4ak6d")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vxbu0")
+}
+autoplay = "Credits"
+
+[node name="CRT_Sharder" type="CanvasLayer" parent="."]
+
+[node name="Crt" type="ColorRect" parent="CRT_Sharder"]
+modulate = Color(1, 1, 1, 0.784314)
+material = ExtResource("9_dgqm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

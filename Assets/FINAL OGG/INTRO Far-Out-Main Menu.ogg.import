@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xpj1pmisec7s"
+path="res://.godot/imported/INTRO Far-Out-Main Menu.ogg-051ac8d2b09e44618c949efb1f3c7bcc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/FINAL OGG/INTRO Far-Out-Main Menu.ogg"
+dest_files=["res://.godot/imported/INTRO Far-Out-Main Menu.ogg-051ac8d2b09e44618c949efb1f3c7bcc.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

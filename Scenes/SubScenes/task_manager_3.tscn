@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2k2fmxlxnwi"]
+
+[ext_resource type="Script" path="res://Scripts/SubScenes/task_manager_3.gd" id="1_fybvn"]
+[ext_resource type="FontFile" uid="uid://bypqcdah1gfx8" path="res://Assets/Fonts/unispace/Unispace Rg.otf" id="2_aifm7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc8t6"]
+size = Vector3(3.2041, 4, 3.13666)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ds2pf"]
+
+[node name="TaskManager" type="Node3D"]
+script = ExtResource("1_fybvn")
+
+[node name="OBJ1" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OBJ1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="OBJ2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_uc8t6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OBJ2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ds2pf")
+
+[node name="Objective label" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -280.0
+offset_right = -2.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aifm7")
+text = "Objective:                          "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Task" type="Label" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -257.0
+offset_right = -71.0
+offset_bottom = -234.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aifm7")
+text = "Go and talk to Captain"
+vertical_alignment = 1
+
+[connection signal="body_entered" from="OBJ1" to="." method="_on_obj_1_body_entered"]
+[connection signal="body_entered" from="OBJ2" to="." method="_on_obj_2_body_entered"]

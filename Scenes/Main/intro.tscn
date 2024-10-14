@@ -1,0 +1,280 @@
+[gd_scene load_steps=20 format=3 uid="uid://ba4lhjwhxw510"]
+
+[ext_resource type="Script" path="res://Scripts/Main/intro.gd" id="1_38a8g"]
+[ext_resource type="Texture2D" uid="uid://d2wknnmqa47hy" path="res://Assets/BG/panorama_imageBGSKY.png" id="1_xlen2"]
+[ext_resource type="Texture2D" uid="uid://cfqwcaif420p6" path="res://Assets/Icons/1.png" id="2_is8xu"]
+[ext_resource type="Texture2D" uid="uid://0k1ja5anw8wm" path="res://Assets/Icons/2.png" id="3_s6egx"]
+[ext_resource type="Texture2D" uid="uid://cwfywm741vomc" path="res://Assets/Icons/4.png" id="4_50fm2"]
+[ext_resource type="FontFile" uid="uid://c0lnl3usffykf" path="res://Assets/Fonts/unispace/Unispace Bd.otf" id="5_nc2ds"]
+[ext_resource type="AudioStream" uid="uid://xpj1pmisec7s" path="res://Assets/FINAL OGG/INTRO Far-Out-Main Menu.ogg" id="7_bpfdg"]
+[ext_resource type="Material" uid="uid://d15r0vye07rc3" path="res://Assets/Shaders/crt.tres" id="8_8boo3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ercgx"]
+panorama = ExtResource("1_xlen2")
+
+[sub_resource type="Sky" id="Sky_kik32"]
+sky_material = SubResource("PanoramaSkyMaterial_ercgx")
+
+[sub_resource type="Environment" id="Environment_ugthm"]
+background_mode = 2
+sky = SubResource("Sky_kik32")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbmxl"]
+transparency = 1
+albedo_texture = ExtResource("2_is8xu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g3x6j"]
+size = Vector2(3571, 2319)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5v7aw"]
+transparency = 1
+albedo_texture = ExtResource("3_s6egx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnyn3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj21o"]
+transparency = 1
+albedo_texture = ExtResource("4_50fm2")
+
+[sub_resource type="Animation" id="Animation_3r5c1"]
+resource_name = "Intro"
+length = 45.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5, 0), Vector3(0, 5, -4), Vector3(0, 5, -100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5, 9, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12, 15, 18.1696, 21, 24, 27, 30, 33, 36, 39, 42, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1), Vector3(0, 0, -2), Vector3(0, 0, -4), Vector3(0, 0, -6), Vector3(0, 0, -8), Vector3(0, 0, -10), Vector3(0, 0, -12), Vector3(0, 0, -14), Vector3(0, 0, -16), Vector3(0, 0, -20), Vector3(0, 0, -28), Vector3(0, 0, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(42, 45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 28, 29, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"_next_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fljm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Main:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Main:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdfdy"]
+_data = {
+"Intro": SubResource("Animation_3r5c1"),
+"RESET": SubResource("Animation_fljm8")
+}
+
+[node name="Intro" type="Node3D"]
+script = ExtResource("1_38a8g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Space" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ugthm")
+
+[node name="Main" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_pbmxl")
+mesh = SubResource("PlaneMesh_g3x6j")
+
+[node name="Title" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.20058, 0, 0, 0, 0.505316, -0.744752, 0, 0.744752, 0.505316, 0, 5, 0)
+material_override = SubResource("StandardMaterial3D_5v7aw")
+transparency = 1.0
+mesh = SubResource("PlaneMesh_wnyn3")
+
+[node name="Title1" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.5642, 0, 0, 0, 0.561112, -0.826986, 0, 0.826986, 0.561112, 0, 4, -6)
+material_override = SubResource("StandardMaterial3D_lj21o")
+mesh = SubResource("PlaneMesh_wnyn3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 7, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hdfdy")
+}
+autoplay = "Intro"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -66.0
+offset_right = 113.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_nc2ds")
+text = "PRESS ENTER TO CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bpfdg")
+autoplay = true
+
+[node name="CRT_Sharder" type="CanvasLayer" parent="."]
+
+[node name="Crt" type="ColorRect" parent="CRT_Sharder"]
+modulate = Color(1, 1, 1, 0.784314)
+material = ExtResource("8_8boo3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
